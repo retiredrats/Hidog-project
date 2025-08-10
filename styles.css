@@ -1,0 +1,28 @@
+:root { --pad: 14px; --radius: 12px; --bg: #fafafa; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: -apple-system, system-ui, "SF Pro Text", "PingFang SC", sans-serif; background: var(--bg); color: #111; }
+header { position: sticky; top: 0; background: white; border-bottom: 1px solid #eee; padding: var(--pad); }
+h1 { margin: 0 0 8px 0; font-size: 18px; }
+nav { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; }
+nav button { padding: 10px; border: 1px solid #ddd; background: #fff; border-radius: 10px; }
+nav button.active { border-color: #111; font-weight: 600; }
+main { padding: var(--pad); max-width: 860px; margin: 0 auto; }
+.view { display: none; }
+.view.active { display: block; }
+#card { background: #fff; border: 1px solid #eee; border-radius: var(--radius); padding: var(--pad); margin-bottom: 8px; }
+#cue { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+#microtask { font-size: 14px; opacity: .8; margin-bottom: 8px; }
+#answer-buttons { display: grid; grid-template-columns: repeat(4,1fr); gap: 8px; margin: 8px 0; }
+#answer-buttons button { padding: 12px 8px; border: 1px solid #ddd; background: #fff; border-radius: 10px; }
+#arousal { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+textarea, input, select { width: 100%; padding: 10px; border-radius: 10px; border: 1px solid #ddd; background: #fff; }
+label { display: grid; gap: 6px; margin: 8px 0; }
+#daily-meta { margin-bottom: 8px; font-size: 13px; color: #666; }
+#searchbar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+#import { display: none; }
+label.import { border: 1px solid #ddd; background: #fff; border-radius: 10px; padding: 8px 12px; }
+ul#card-list { list-style: none; padding: 0; margin: 8px 0; display: grid; gap: 10px; }
+ul#card-list li { background:#fff; border:1px solid #eee; border-radius:10px; padding: 10px; }
+footer { padding: var(--pad); text-align: center; color: #888; }
+.hint { color: #666; font-size: 13px; }
+details > div { margin-top: 8px; }
