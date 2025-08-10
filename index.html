@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Bergson Recall</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <h1>Bergson Recall</h1>
+  <nav>
+    <button id="tab-review" class="active">复习</button>
+    <button id="tab-add">新增</button>
+    <button id="tab-list">库</button>
+    <button id="tab-settings">设置</button>
+  </nav>
+</header>
+
+<main>
+  <!-- Review -->
+  <section id="view-review" class="view active">
+    <div id="daily-meta"></div>
+    <div id="card">
+      <div id="cue"></div>
+      <div id="microtask"></div>
+      <details id="details">
+        <summary>展开要义</summary>
+        <div id="content"></div>
+        <div id="context"></div>
+        <div id="links"></div>
+      </details>
+    </div>
+    <div id="answer-buttons">
+      <button data-q="2">忘了</button>
+      <button data-q="3">想起了</button>
+      <button data-q="4">会用了</button>
+      <button data-q="5">能教人</button>
+    </div>
+    <div id="arousal">
+      <label>此刻感觉：</label>
+      <label><input type="radio" name="ar" value="L" checked>平静</label>
+      <label><input type="radio" name="ar" value="M">专注</label>
+      <label><input type="radio" name="ar" value="H">兴奋</label>
+    </div>
+    <textarea id="review-note" placeholder="20秒微任务：举例/反驳/迁移/比喻"></textarea>
+  </section>
+
+  <!-- Add -->
+  <section id="view-add" class="view">
+    <form id="add-form">
+      <label>提示句（cue）<input id="f-cue" required></label>
+      <label>要义（content）<textarea id="f-content" required></textarea></label>
+      <label>场景锚点（context）<textarea id="f-context"></textarea></label>
+      <label>微任务
+        <select id="f-micro">
+          <option>举例</option><option>反驳</option><option>迁移</option><option>比喻</option>
+        </select>
+      </label>
+      <label>标签（逗号分隔）<input id="f-tags" placeholder="柏格森, 认识论"></label>
+      <label>重要性
+        <select id="f-imp"><option>L</option><option selected>M</option><option>H</option></select>
+      </label>
+      <label>情绪唤醒度
+        <select id="f-arousal"><option>L</option><option selected>M</option><option>H</option></select>
+      </label>
+      <button type="submit">加入</button>
+    </form>
+  </section>
+
+  <!-- List -->
+  <section id="view-list" class="view">
+    <div id="searchbar">
+      <input id="search" placeholder="搜索 cue/tags">
+      <button id="export">导出JSON</button>
+      <label class="import">导入JSON<input type="file" id="import" accept="application/json"></label>
+    </div>
+    <ul id="card-list"></ul>
+  </section>
+
+  <!-- Settings -->
+  <section id="view-settings" class="view">
+    <label>每日上限<input type="number" id="daily-cap" min="10" max="200" value="40"></label>
+    <label>同域连续上限<input type="number" id="domain-cap" min="1" max="10" value="3"></label>
+    <p class="hint">提示：重要性高的卡片会更密集复现；跨域混排自动开启。</p>
+    <button id="reset">重置全部数据（危险）</button>
+    <p id="sw-status">Service Worker: 未注册</p>
+  </section>
+</main>
+
+<footer>
+  <small>Local-first • 无分数化 • 复习即使用</small>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
